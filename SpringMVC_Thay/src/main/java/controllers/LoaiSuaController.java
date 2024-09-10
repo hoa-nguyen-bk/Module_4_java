@@ -1,5 +1,6 @@
 package controllers;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +19,16 @@ import javaBeans.LoaiSua;
 
 @Controller
 public class LoaiSuaController {
+	@ModelAttribute
+	public void fontChu(HttpServletRequest request) {
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	@RequestMapping(path = "/them-loai-sua", method = RequestMethod.GET)
 	public String themLoaiSua() {
 		// nó trả về bộ giải quyết view, chỗ này chỉ trả về tên view thui nhen, chú ý kỹ
@@ -34,10 +46,10 @@ public class LoaiSuaController {
 		ls.setMaLoai(ml);
 		ls.setTenLoai(tl);
 		LoaiSuaBL.them(ls);
-		return "them-loai-sua";
+		return "redirect:/loai-sua";
 	}
 
-	//sửa lại theo tham số yếu cầu
+	// 2. sửa lại theo tham số yếu cầu
 	@RequestMapping(path = "/them-loai-sua-requestparam", method = RequestMethod.GET)
 	public String themLoaiSuaRequestParam() {
 		// nó trả về bộ giải quyết view, chỗ này chỉ trả về tên view thui nhen, chú ý kỹ
@@ -52,8 +64,21 @@ public class LoaiSuaController {
 		ls.setMaLoai(ml);
 		ls.setTenLoai(tl);
 		LoaiSuaBL.them(ls);
-		return "them-loai-sua-requestparam";
+		return "redirect:/loai-sua";
 	}
+	
+	// 3. Javabean
+		@RequestMapping(path = "/them-loai-sua-javabean", method = RequestMethod.GET)
+		public String themLoaiSuaJavaBean() {
+			return "them-loai-sua-javabean"; // --> viewResolver : prefix + view name + suffix --> "/WEB-INF/views/" +
+									// "them-loai-sua" + ".jsp" --> /WEB-INF/views/them-loai-sua.jsp
+		}
+
+		@RequestMapping(path = "/them-loai-sua-javabean", method = RequestMethod.POST)
+		public String themLoaiSuaJavaBean(LoaiSua ls) {
+			LoaiSuaBL.them(ls);
+			return "redirect:/loai-sua";
+		}
 
 	
 	// chỗ này tức là nếu tham số có maLoai = thì lấy cái mã loại đó, ntn /loai-sua?maLoai=SB 
