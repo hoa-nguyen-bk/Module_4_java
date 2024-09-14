@@ -32,12 +32,17 @@
         <put-attribute name="noiDung" value="/WEB-INF/views/loai-sua.jsp" />
     </definition>
     
-    <!--  phải thêm loại sữa thì mới có thể redirect qua trang loại sữa được, nó kế thừa từ bên LoaiSuaController @RequestMapping vaf trang view thì nó mới chạy được -->
     <definition name="them-loai-sua" extends="mau">
     	<!-- Và nhiều cái khác thì mình cứ tiếp tục định nghĩa bằng thẻ definition  -->
     	<put-attribute name="tieuDe" value="Thêm loại sữa" type="string" />
         <put-attribute name="noiDung" value="/WEB-INF/views/them-loai-sua-javabean.jsp" />
     </definition>
 
+	<definition name="upload-file-tiles" extends="mau">
+    	<!-- Và nhiều cái khác thì mình cứ tiếp tục định nghĩa bằng thẻ definition  -->
+    	<put-attribute name="tieuDe" value="Upload file" type="string" />
+        <put-attribute name="noiDung" value="/WEB-INF/views/upload-file.jsp" />
+    </definition>
+	
 </tiles-definitions>
                 
