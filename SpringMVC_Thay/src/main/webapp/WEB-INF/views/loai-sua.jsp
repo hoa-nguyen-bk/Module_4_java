@@ -2,13 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Danh sách loại sữa</title>
-</head>
-<body>
+
 	<table border="1">
 		<caption>Danh sách loại sữa</caption>
 		<thead>
@@ -28,5 +22,3 @@
 			</c:forEach>
 		</tbody>
 	</table>
-</body>
-</html>

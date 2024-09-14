@@ -7,6 +7,11 @@
 <meta charset="UTF-8">
 <title><tiles:insertAttribute name="tieuDe"></tiles:insertAttribute></title>
 <style>
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
 header, footer {
 	height: 100px;
 	background-color: lightblue;

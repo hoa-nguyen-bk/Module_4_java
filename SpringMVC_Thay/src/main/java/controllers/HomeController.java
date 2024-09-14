@@ -25,7 +25,8 @@ public class HomeController {
 	}
 	@RequestMapping(path = {"/","/home","/home.htm"})
 	public String home() {
-		return "home";			//--> viewResolver :  prefix + view name + suffix --> "/WEB-INF/views/" + "home" + ".jsp" --> /WEB-INF/views/home.jsp
+//		return "home";			//--> viewResolver :  prefix + view name + suffix --> "/WEB-INF/views/" + "home" + ".jsp" --> /WEB-INF/views/home.jsp
+		return "nha"; // phải tách ra trả về trang nhà, trả về cái tên định nghĩa trong tiles, ví dụ ở đây là trang nha
 	}
 	@RequestMapping(path = "/setCookie")
 	@ResponseBody

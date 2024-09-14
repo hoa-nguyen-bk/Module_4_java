@@ -17,8 +17,26 @@
         <put-attribute name="noiDung" value="" />
     </definition>
  
-    <definition name="index" extends="mau">
-        <put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+ 	<!-- Mình định nghĩa lại nội dung, và cái tiêu đề, trang home nằm bên view, còn template thì nằm trong thư mục template -->
+    <!--  nó kế thừa cái trang mẫu, lấy cái nội dung của home, và cái tên name="home" home này phải là duy nhất -->
+    <definition name="nha" extends="mau">
+    	<!-- Và nhiều cái khác thì mình cứ tiếp tục định nghĩa bằng thẻ definition  -->
+    	<put-attribute name="tieuDe" value="Home" type="string" />
+        <put-attribute name="noiDung" value="/WEB-INF/views/home.jsp" />
+    </definition>
+    
+    <!--  phải thêm loại sữa thì mới có thể redirect qua trang loại sữa được, nó kế thừa từ bên LoaiSuaController @RequestMapping vaf trang view thì nó mới chạy được -->
+    <definition name="loai-sua" extends="mau">
+    	<!-- Và nhiều cái khác thì mình cứ tiếp tục định nghĩa bằng thẻ definition  -->
+    	<put-attribute name="tieuDe" value="Loại sữa" type="string" />
+        <put-attribute name="noiDung" value="/WEB-INF/views/loai-sua.jsp" />
+    </definition>
+    
+    <!--  phải thêm loại sữa thì mới có thể redirect qua trang loại sữa được, nó kế thừa từ bên LoaiSuaController @RequestMapping vaf trang view thì nó mới chạy được -->
+    <definition name="them-loai-sua" extends="mau">
+    	<!-- Và nhiều cái khác thì mình cứ tiếp tục định nghĩa bằng thẻ definition  -->
+    	<put-attribute name="tieuDe" value="Thêm loại sữa" type="string" />
+        <put-attribute name="noiDung" value="/WEB-INF/views/them-loai-sua-javabean.jsp" />
     </definition>
 
 </tiles-definitions>
