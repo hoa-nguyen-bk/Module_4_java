@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+          <!-- lấy từ trang này https://www.springbyexample.org/examples/simple-tiles-spring-mvc-webapp-tiles-xml-config.html -->      
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <!-- Default Main Template, sau này có thể có nhiều trang mẫu, name="mau01" name="mau02" -->
+    <definition name="mau" template="/WEB-INF/templates/trang-mau.jsp">
+        <put-attribute name="tieuDe" value="Trang mẫu" type="string" />
+        <put-attribute name="dauTrang" value="/WEB-INF/templates/dau-trang.jsp" />
+        <put-attribute name="cuoiTrang" value="/WEB-INF/templates/cuoi-trang.jsp" />
+        <put-attribute name="thucDon" value="/WEB-INF/templates/thuc-don.jsp" />
+        <put-attribute name="noiDung" value="" />
+    </definition>
+ 
+    <definition name="index" extends="mau">
+        <put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+    </definition>
+
+</tiles-definitions>
+                
