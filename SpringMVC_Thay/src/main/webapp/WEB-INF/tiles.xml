@@ -50,6 +50,11 @@
     	<put-attribute name="tieuDe" value="Gửi meo nhau nào" type="string" />
         <put-attribute name="noiDung" value="/WEB-INF/views/sendmail.jsp" />
     </definition>
+    
+    <definition name="add-category" extends="mau">
+    	<put-attribute name="tieuDe" value="Add category" type="string" />
+        <put-attribute name="noiDung" value="/WEB-INF/views/add-category.jsp" />
+    </definition>
 	
 </tiles-definitions>
                 
