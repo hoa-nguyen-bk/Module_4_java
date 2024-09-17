@@ -50,7 +50,7 @@ public class UploadController {
 	}
 	
 	@RequestMapping(path = "/upload-multiple-file", method = RequestMethod.POST)
-	public String uploadMultipleFile(Model model, @RequestParam(name="file") MultipartFile[] parts, HttpServletRequest request) {
+	public String uploadMultipleFile( @RequestParam(name="file") MultipartFile[] parts, HttpServletRequest request, Model model) {
 		String path = request.getServletContext().getRealPath("/upload/");
 		try {
 			model.addAttribute("list",upload(path,parts));
@@ -63,7 +63,7 @@ public class UploadController {
 	private static List<String> upload(String path, MultipartFile[] parts) {
 		List<String> files = new ArrayList<String>(parts.length);
 		for(MultipartFile part:parts) {
-			List<String> file = (List<String>) upload(path, parts);
+			String file = upload(path, parts);
 			files.addAll(file);
 		}
 		return files;

@@ -4,10 +4,10 @@
 <h1>Minh họa tải NHIỀU tập tin lên Web Server</h1>
 <form action="upload-file" method="post" enctype="multipart/form-data">
 	<p>
-		<label>Tập tin: </label> <input type="file" name="file">
+		<label>Tập tin: </label> <input multiple="multiple" type="file" name="file">
 	</p>
 	<p>
-		<input multiple="multiple" type="submit" name="btnUpload" value="Upload" />
+		<input type="submit" name="btnUpload" value="Upload" />
 	</p>
 </form>
 <c:forEach var="name" items="${list }">
