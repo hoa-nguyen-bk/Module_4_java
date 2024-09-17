@@ -45,6 +45,11 @@
     	<put-attribute name="tieuDe" value="Upload nhiều file" type="string" />
         <put-attribute name="noiDung" value="/WEB-INF/views/upload-multiple-file.jsp" />
     </definition>
+    
+    <definition name="sendmail" extends="mau">
+    	<put-attribute name="tieuDe" value="Gửi meo nhau nào" type="string" />
+        <put-attribute name="noiDung" value="/WEB-INF/views/sendmail.jsp" />
+    </definition>
 	
 </tiles-definitions>
                 

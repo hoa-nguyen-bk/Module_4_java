@@ -6,4 +6,5 @@
   <li> <a href="them-loai-sua">Thêm loại sữa</a></li>
   <li> <a href="upload-file">Tải file</a></li>
   <li> <a href="upload-multiple-file">Tải nhiều file</a></li>
+  <li> <a href="sendmail.html">Gửi mail</a></li>
 </ul>

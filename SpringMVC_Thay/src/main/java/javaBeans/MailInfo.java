@@ -2,7 +2,7 @@ package javaBeans;
 
 import java.io.Serializable;
 
-public class EmailInfo implements Serializable {
+public class MailInfo implements Serializable {
 	/**
 	 * 
 	 */
@@ -10,6 +10,9 @@ public class EmailInfo implements Serializable {
 	private String subject;
 	private String email;
 	private String content;
+	public MailInfo() {
+		super();
+	}
 	public String getSubject() {
 		return subject;
 	}
@@ -27,8 +30,5 @@ public class EmailInfo implements Serializable {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	public EmailInfo() {
-		super();
 	}
 }

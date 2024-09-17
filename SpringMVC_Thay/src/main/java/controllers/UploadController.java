@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class UploadController {
 			FileOutputStream fos = new FileOutputStream(thuMuc + tapTin);
 			fos.write(mb);
 			fos.close();// đóng tập tin
-			model.addAttribute("tapTin",tapTin); // sử dụng model để đặt dữ liệu lên trên đó để quay trở về
+			model.addAttribute("tapTin", tapTin); // sử dụng model để đặt dữ liệu lên trên đó để quay trở về
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -42,30 +43,35 @@ public class UploadController {
 
 		return "upload-file-tiles";
 	}
-	
+
 	// giờ upload nhiều file
-	@RequestMapping(path="/upload-multiple-file")
+	@RequestMapping(path = "/upload-multiple-file")
 	public String uploadMultipleFile() {
 		return "multi-upload";
 	}
-	
+
 	@RequestMapping(path = "/upload-multiple-file", method = RequestMethod.POST)
-	public String uploadMultipleFile( @RequestParam(name="file") MultipartFile[] parts, HttpServletRequest request, Model model) {
-		String path = request.getServletContext().getRealPath("/upload/");
-		try {
-			model.addAttribute("list",upload(path,parts));
-		} catch (Exception e) {
-			e.printStackTrace();
+	public String uploadMultipleFile(@RequestParam(name = "files") MultipartFile[] parts, HttpServletRequest request,
+			Model model) {
+		String tm = request.getServletContext().getRealPath("/img/");
+		String tt;
+		List<String> dsTapTin = new ArrayList<String>();
+		for (MultipartFile part : parts) {
+			tt = part.getOriginalFilename();
+//			cho nó xuất ra cái tập tin luôn 
+			try (OutputStream os = new FileOutputStream(tm + tt)) {
+//			thông qua đối tượng part ta lấy được mảng byte luôn
+				byte[] mb = part.getBytes();
+				os.write(mb);
+				dsTapTin.add(tt);
+//				xong nó tự động close luôn 
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		model.addAttribute("dsTapTin", dsTapTin);
 		return "multi-upload";
 	}
 
-	private static List<String> upload(String path, MultipartFile[] parts) {
-		List<String> files = new ArrayList<String>(parts.length);
-		for(MultipartFile part:parts) {
-			String file = upload(path, parts);
-			files.addAll(file);
-		}
-		return files;
-	}
 }
