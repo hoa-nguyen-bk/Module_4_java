@@ -6,7 +6,7 @@
 		<li>${p.categoryName }</li>
 		<c:forEach items="${children }" var="c">
 			<c:if test="${c.parentId==p.categoryId }">
-				<li style="margin-left:30px"><a href="#">${c.categoryName }</a></li>
+				<li style="margin-left:30px"><a href="index.html?categoryId=${c.categoryId }">${c.categoryName }</a></li>
 			</c:if>
 		</c:forEach>
 	</c:forEach>

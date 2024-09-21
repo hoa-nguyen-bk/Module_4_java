@@ -62,6 +62,12 @@
         <put-attribute name="thucDon" value="/WEB-INF/views/category-menu.jsp" /><!-- để xem trang thực đơn đưa lên có được không -->
     	<put-attribute name="noiDung" value="/WEB-INF/views/list-product.jsp" />
     </definition>
-	
+
+	<definition name="detail.html" extends="mau">
+    	<put-attribute name="tieuDe" value="Chi tiết sách" type="string" />
+    	<put-attribute name="dauTrang" value="/WEB-INF/views/mini-shop.jsp" />
+        <put-attribute name="thucDon" value="/WEB-INF/views/category-menu.jsp" />
+    	<put-attribute name="noiDung" value="/WEB-INF/views/detail.jsp" />
+    </definition>	
 </tiles-definitions>
                 
