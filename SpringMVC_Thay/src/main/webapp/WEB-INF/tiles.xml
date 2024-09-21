@@ -60,6 +60,7 @@
     	<put-attribute name="tieuDe" value="Index" type="string" />
     	<put-attribute name="dauTrang" value="/WEB-INF/views/mini-shop.jsp" />
         <put-attribute name="thucDon" value="/WEB-INF/views/category-menu.jsp" /><!-- để xem trang thực đơn đưa lên có được không -->
+    	<put-attribute name="noiDung" value="/WEB-INF/views/list-product.jsp" />
     </definition>
 	
 </tiles-definitions>
