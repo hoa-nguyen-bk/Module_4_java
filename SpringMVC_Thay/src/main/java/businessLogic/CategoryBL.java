@@ -25,9 +25,26 @@ public class CategoryBL {
 			}
 		});
 	}
+	//lấy hàm lấy những đứa con
+	public static List<Category> getChildrens(){
+		//lấy các category mà ko có cha
+		String sql = "SELECT * FROM `category` WHERE ParentId is not null";
+		return jdbc.query(sql, new RowMapper<Category>() {
+			@Override
+			public Category mapRow(ResultSet rs, int numRow) throws SQLException {
+				Category c = new Category();
+				c.setCategoryId(rs.getInt("categoryid"));
+				c.setCategoryName(rs.getString("categoryname"));
+				c.setParentId(rs.getInt("parentid"));
+				return c;
+			}
+		});
+	}
 	public static void main(String[] args) {
 		List<Category> ds;
-		ds = getParents();
+		//ds = getParents();
+		ds=getChildrens();
 		ds.forEach(c->System.out.println(c.getCategoryName()));
+		
 	}
 }

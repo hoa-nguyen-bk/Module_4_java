@@ -19,4 +19,13 @@ public class CategoryController {
 		model.addAttribute("parents",parents);
 		return "add-category";
 	}
+	@RequestMapping(path="/index.html")
+	public String index(Model model) {
+		List<Category> parents = CategoryBL.getParents();
+		List<Category> children = CategoryBL.getChildrens();
+		model.addAttribute("children",children);
+		model.addAttribute("parents",parents);
+		return "index.html";
+	}
+	
 }

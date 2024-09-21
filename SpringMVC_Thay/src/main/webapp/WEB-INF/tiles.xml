@@ -8,7 +8,7 @@
 
 <tiles-definitions>
 
-    <!-- Default Main Template, sau này có thể có nhiều trang mẫu, name="mau01" name="mau02" -->
+    <!-- Default Main Template, sau này có thể có nhiều trang mẫu, name="mau01" name="mau02", trang mẫu đầu tiên là cái này, nên ta có thể ghi đè mấy cái thông tin này thôi -->
     <definition name="mau" template="/WEB-INF/templates/trang-mau.jsp">
         <put-attribute name="tieuDe" value="Trang mẫu" type="string" />
         <put-attribute name="dauTrang" value="/WEB-INF/templates/dau-trang.jsp" />
@@ -54,6 +54,12 @@
     <definition name="add-category" extends="mau">
     	<put-attribute name="tieuDe" value="Add category" type="string" />
         <put-attribute name="noiDung" value="/WEB-INF/views/add-category.jsp" />
+    </definition>
+    
+	<definition name="index.html" extends="mau">
+    	<put-attribute name="tieuDe" value="Index" type="string" />
+    	<put-attribute name="dauTrang" value="/WEB-INF/views/mini-shop.jsp" />
+        <put-attribute name="thucDon" value="/WEB-INF/views/category-menu.jsp" /><!-- để xem trang thực đơn đưa lên có được không -->
     </definition>
 	
 </tiles-definitions>

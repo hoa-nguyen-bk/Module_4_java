@@ -8,4 +8,6 @@
   <li> <a href="upload-multiple-file">Tải nhiều file</a></li>
   <li> <a href="sendmail.html">Gửi mail</a></li>
   <li> <a href="add-category">Add category</a></li>
+  <li> <a href="index.html">Index</a></li> <!-- Nó sẽ tìm đường dẫn này trong controller -->
+  
 </ul>
