@@ -31,6 +31,8 @@
         <put-attribute name="noiDung" value="/WEB-INF/views/loai-sua.jsp" />
     </definition>
     
+
+    
     <definition name="them-loai-sua" extends="mau">
     	<put-attribute name="tieuDe" value="Thêm loại sữa" type="string" />
         <put-attribute name="noiDung" value="/WEB-INF/views/them-loai-sua-javabean.jsp" />
@@ -69,5 +71,9 @@
         <put-attribute name="thucDon" value="/WEB-INF/views/category-menu.jsp" />
     	<put-attribute name="noiDung" value="/WEB-INF/views/detail.jsp" />
     </definition>	
+    <definition name="trangDangNhap" extends="mau">
+    	<put-attribute name="tieuDe" value="Đăng nhập" type="string" />
+        <put-attribute name="noiDung" value="/WEB-INF/views/login.jsp" />
+    </definition>
 </tiles-definitions>
                 

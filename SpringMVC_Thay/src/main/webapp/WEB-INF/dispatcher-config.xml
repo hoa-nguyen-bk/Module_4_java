@@ -54,4 +54,15 @@
 			</props>
 		</property>
 	</bean>
+	<!-- khi người ta xử lý gì đó, mình lấy bộ chặn này ra chặn lại -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/loai-sua"/>
+			<bean class="interceptors.Vd1_Interceptor"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/login"/>
+			<bean class="interceptors.LoginInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>

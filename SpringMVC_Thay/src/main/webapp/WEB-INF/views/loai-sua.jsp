@@ -22,3 +22,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	
+	<c:if test="${not empty thuocTinhThem }">
+		<h1>${thuocTinhThem }</h1>
+	</c:if>

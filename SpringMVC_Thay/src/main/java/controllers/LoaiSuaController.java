@@ -85,6 +85,7 @@ public class LoaiSuaController {
 	@RequestMapping(path = "/loai-sua")
 	public String loaiSua(Model model,
 			@RequestParam(name = "maLoai", defaultValue = "", required = false) String maLoai) {
+		System.out.println("Đầu phương thức loại sửa");
 		List<LoaiSua> dsls;
 		if (maLoai.isEmpty()) {
 			//còn ko lấy ?maLoai thì lấy hết
@@ -95,6 +96,7 @@ public class LoaiSuaController {
 			dsls.add(ls);
 		}
 		model.addAttribute("dsls", dsls);
+		System.out.println("Sau phương thức loại sữa");
 		return "loai-sua";
 	}
 
