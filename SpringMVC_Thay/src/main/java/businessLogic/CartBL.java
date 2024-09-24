@@ -18,6 +18,6 @@ public class CartBL {
 				Cart cart = new Cart();
 				return cart;
 			}
-		}, id)
+		}, id);
 	}
 }

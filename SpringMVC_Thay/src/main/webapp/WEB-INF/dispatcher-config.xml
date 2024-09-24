@@ -57,11 +57,11 @@
 	<!-- khi người ta xử lý gì đó, mình lấy bộ chặn này ra chặn lại -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/loai-sua"/>
-			<bean class="interceptors.Vd1_Interceptor"></bean>
+			<mvc:mapping path="/loai-sua"/> <!-- khi  người ta click vào trang loại sữa thì mình hiển thị bộ chặn đăng nhập để kiểm tra -->
+			<bean class="interceptors.LoginInterceptor"></bean>
 		</mvc:interceptor>
 		<mvc:interceptor>
-			<mvc:mapping path="/login"/>
+			<mvc:mapping path="/index.html"/> <!-- khi  người ta click vào trang loại sữa thì mình hiển thị bộ chặn đăng nhập để kiểm tra -->
 			<bean class="interceptors.LoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

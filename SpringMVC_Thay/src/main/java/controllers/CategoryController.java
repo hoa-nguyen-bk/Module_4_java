@@ -40,8 +40,8 @@ public class CategoryController {
 		} else {
 			products = ProductBL.productTheoCategoryId(categoryId);
 		}
-		model.addAttribute("children", children);
 		model.addAttribute("parents", parents);
+		model.addAttribute("children", children);
 		model.addAttribute("products", products);
 		model.addAttribute("tongSoTrang", ProductBL.tongSoTrang());
 		return "index.html";

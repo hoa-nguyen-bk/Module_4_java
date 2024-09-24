@@ -5,11 +5,13 @@ import java.io.UnsupportedEncodingException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -65,8 +67,26 @@ public class HomeController {
 		return tenDV;
 	}
 
-	@RequestMapping(path = "/login")
+	@RequestMapping(path = "/login", method = RequestMethod.GET)
 	public String dangNhap() { // tên phương thức
+		return "trangDangNhap";
+	}
+
+	@RequestMapping(path = "/login", method = RequestMethod.POST)
+	public String dangNhap(HttpServletRequest request, HttpServletResponse response) { // tên phương thức
+		// nếu đăng nhập đúng tên t3h và 123, thì trả về trang loại sữa, ko thì về lại
+		// trang đăng nhập
+		String userName = request.getParameter("userName");
+		String password = request.getParameter("password");
+		// kiểm tra coi có đúng tài khoản mật khẩu ko
+		if (userName.equals("t3h") && password.equals("123")) {
+			HttpSession session = request.getSession();
+			session.setAttribute("userName", userName); // đưa username lên localhost hay cookie
+			// nếu người ta đăng nhập, mình bỏ qua bộ giải quyết view và trả về đường dẫn đó
+			String path = (String) session.getAttribute("path");
+			return "redirect:/" + path;
+//			return "redirect:/loai-sua";
+		}
 		return "trangDangNhap";
 	}
 
