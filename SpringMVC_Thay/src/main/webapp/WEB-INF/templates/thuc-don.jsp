@@ -10,4 +10,6 @@
   <li> <a href="add-category">Add category</a></li>
   <li> <a href="index.html">Index</a></li> <!-- Nó sẽ tìm đường dẫn này trong controller -->
   
+  <li> <a href="ti-gia">Tỉ giá</a></li>
+  
 </ul>

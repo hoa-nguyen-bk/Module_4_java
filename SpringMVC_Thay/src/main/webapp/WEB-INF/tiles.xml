@@ -75,5 +75,9 @@
     	<put-attribute name="tieuDe" value="Đăng nhập" type="string" />
         <put-attribute name="noiDung" value="/WEB-INF/views/login.jsp" />
     </definition>
+    <definition name="ti-gia" extends="mau">
+    	<put-attribute name="tieuDe" value="Tỉ giá" type="string" />
+        <put-attribute name="noiDung" value="/WEB-INF/views/ti-gia.jsp" />
+    </definition>
 </tiles-definitions>
                 
