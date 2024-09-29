@@ -1,12 +1,16 @@
 package interceptors;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.HandlerInterceptor;
+
+import businessLogic.CategoryBL;
+import javaBeans.Category;
 
 public class LoginInterceptor implements HandlerInterceptor {
 	@Override
@@ -24,6 +28,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 			response.sendRedirect("login"); // đường dẫn trên địa chỉ, khi đưa đường dẫn trên địa chỉ, nó phải tìm ra phương thức xử lý cho địa chỉ này, chính là trong controller, chính là phương thức để xử lý
 			return false;
 		} else {
+			List<Category> parents = CategoryBL.getParents();
+			request.setAttribute("parents", parents);
 			return true;
 		}
 	}

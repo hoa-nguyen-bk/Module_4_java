@@ -31,7 +31,6 @@ public class CategoryController {
 		// trường hợp này, tham số từ URL có tên là "trang" sẽ được ánh xạ vào biến t.
 		// trang ở đây mặc định là 1
 		int trang = Integer.parseInt(page);
-		List<Category> parents = CategoryBL.getParents();
 		List<Category> children = CategoryBL.getChildrens();
 //		List<Product> products = ProductBL.getAll();
 		List<Product> products;
@@ -40,7 +39,6 @@ public class CategoryController {
 		} else {
 			products = ProductBL.productTheoCategoryId(categoryId);
 		}
-		model.addAttribute("parents", parents);
 		model.addAttribute("children", children);
 		model.addAttribute("products", products);
 		model.addAttribute("tongSoTrang", ProductBL.tongSoTrang());
