@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+							http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+	<mvc:annotation-driven/>
+	
+	<context:component-scan base-package="controllers"/>
+	
+	<mvc:resources location="/css/" mapping="/css/*"/>
+	<mvc:resources location="/js/" mapping="/js/*"/>
+	<mvc:resources location="/img/" mapping="/img/*"/>
+	
+	<!-- đây là cái been để giải quyết spring , đây là bộ giải quyết view-->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+	</bean> 
+	
+		<!-- chỉ ra các định nghĩa nằm ở đâu, cấu hình các định nghĩa nằm trong tập tin này, để khi nó trả về cái tên view hoặc tên định nghĩa trong tiles -->
+	<!-- mình phải định nghĩa cái bean cho cái tiles
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+	</bean>
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles.xml</value>
+			</list>
+		</property>
+	</bean> -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<!-- SMTP settings -->
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="465" />
+		<property name="username" value="admin@cse.net.com" />
+		<property name="password" value="123" />
+		<property name="javaMailProperties">
+			<!-- additional properties specific to JavaMail -->
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.socketFactory.port">465</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+				<prop key="mail.smtp.port">587</prop>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean><!-- khi  người ta click vào trang loại sữa thì mình hiển thị bộ chặn đăng nhập để kiểm tra -->
+	<!-- khi người ta xử lý gì đó, mình lấy bộ chặn này ra chặn lại 
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/loai-sua"/> 
+			<bean class="interceptors.LoginInterceptor"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/index.html"/> 
+			<bean class="interceptors.LoginInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>-->
+</beans>
