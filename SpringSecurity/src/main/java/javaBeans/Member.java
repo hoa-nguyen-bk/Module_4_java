@@ -15,6 +15,22 @@ public class Member implements Serializable {
 	public Member() {
 		super();
 	}
+	public Member(Long id, String username, String password, String email, boolean gender, String address, String tel) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.gender = gender;
+		this.address = address;
+		this.tel = tel;
+	}
+	public Member(Long id, String username, String password) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+	}
 	public Long getId() {
 		return id;
 	}
