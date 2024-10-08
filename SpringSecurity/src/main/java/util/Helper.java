@@ -5,10 +5,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
+import org.apache.catalina.tribes.util.Arrays;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-
 
 public class Helper {
 	public static byte[] sha256(String plaintext){
@@ -39,16 +38,11 @@ public class Helper {
     }
 	public static void main(String[] args) {
 		String mk = "abc";
-//		byte[] mb = sha256(mk);
-//		for(int i = 0; i<mb.length;i++) {			
-//			System.out.print(String.format("%2X", mb[i]));// ra dãy số hexa https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Formatter.html
-//		}
-		// lấy mật khẫu cũ so với mật khẩu đã băm xem khớp nhau ko, nếu khớp nhau thì xem như là đúng
-		String matKhauMaHoa1 = bcrypt(mk);
-		System.out.println(matKhauMaHoa1);
-		String matKhauMaHoa2 = bcrypt(mk);
-		System.out.println(matKhauMaHoa2);
-		System.out.println(randomLong());
-		System.out.println(randomString(4));
+		byte[] mkmh = sha256(mk);
+		//System.out.println(Arrays.toString(mkmh));
+		for(int i=0; i<mkmh.length; i++)
+			System.out.print(String.format("%2X",mkmh[i]));
+		String mkmh2 = bcrypt(mk);
+		System.out.println("\n"+mkmh2);
 	}
 }
